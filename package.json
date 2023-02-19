@@ -4,11 +4,18 @@
   "description": "this project foir reminder simple crud and middleware",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "crud"
   ],
   "author": "Naser & firas",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "moongoose": "^0.0.5",
+    "nodemon": "^2.0.20"
+  }
 }
