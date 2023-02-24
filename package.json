@@ -13,8 +13,11 @@
   "author": "Naser & firas",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "mongodb": "^5.0.1",
+    "mongoose": "^6.9.2",
     "moongoose": "^0.0.5",
     "nodemon": "^2.0.20"
   }
