@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  server :
+      build : 
+         context : .
+         dockerfile : Dockerfile
+      image : node:lastest
+      container_name: node-serverApi
+      restart : always 
+      
+      stdin_open: true 
+      command : /usr/src/app/node_modules/.bin/nodemon server.js
+      volumes :
+        - ./:/usr/src/app
+        - /usr/src/app/node_modules
+      ports :
+       - "5000:5000"
+      depends_on:
+       - mongodb
+      external_links:
+       - mongodb
+      env_file : ./config/.env
+      environment :
+       - URL_MONGO_DB = mongodb://mongodb:27017/simpleAPi
+      networks:
+       - app-network
+
+  mongodb:
+       image : mongo:latest
+       container_name : mongodb
+       restart : always 
+       volumes :
+        - dbdata:/data/db
+       ports:
+        - "27017:27017"
+       networks:
+        - app-network
+networks:
+    app-network:
+       driver : bridge
+volumes:
+     dbdata :
+    
+        driver : local   
+       
+         
