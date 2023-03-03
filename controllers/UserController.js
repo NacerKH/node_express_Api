@@ -2,10 +2,11 @@ const mongoose=require('mongoose');
 const UserModel =require('../Models/User')
 const ObjectID = require('mongoose').Types.ObjectId;
 module.exports.createUser = async (req, res) => {
-    console.log( req.body.name)
+    console.log( "ddd",{...req})
     const newUser = new UserModel({
         name: req.body.name,
-         gender: req.body.gender,
+      gender: req.body.gender,
+      picture: req.file.path,
    
       });
       try {
